@@ -50,3 +50,23 @@ This data is ripe for exploration. Working with the files provided, here are a f
 5. After removing common stopwords, what are the most frequent terms in the narrative text? Do the word frequencies change over time?
 6. Use topic modeling to cluster the incidents based on the narrative text and/or probable cause descriptions. How do the clusters differ from those created with the structured data fields?
 7. Imagine you have a client with a fear of flying. That client wants to know what types of flights present the most risk of an incident. Use your findings from the earlier tasks to answer the client's question in a report no longer than 1 page.
+
+----
+
+### File Descriptions
+
+**RTI_Data_Exercise_Data**
+
+This file reads in the XML file, reads and merges the JSON files, and finally combines the XML with the JSON text data. Features such as fatal indicator and separate fields for day, month, year, and dayofweek are created.
+
+**RTI_Data_Exercise_Descriptive_Plots**
+
+This file reads in the combined dataset created by RTI_Data_Exercise_Data and creates descriptive plots of various fields, maps US data, and performs kmeans clustering on data.
+
+**RTI_Data_Exercise_Text_Analtyics**
+
+This file reads in the combined dataset created by RTI_Data_Exercise_Data and performs text analytics using latent dirichlet allocation to assign topic numbers to the narrative and probable cause for each accident.
+
+**RTI_Data_Exercise_Fatality_Model**
+
+This file reads in the combined dataset created by RTI_Data_Exercise_Text_Analytics and creates a classification model of if an accident will be fatal (have one or more fatality) or not. Features are selected using sklearn selectKbest package and two models (logistic regression and Light Gradient Boosted Models) are created.
